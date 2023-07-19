@@ -1,0 +1,25 @@
+.container {
+    background-color: #e5f3f8;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.img{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+}

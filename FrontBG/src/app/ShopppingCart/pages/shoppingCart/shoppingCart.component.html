@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="ps-5 pt-2 mt-3">
+    <i class="bi bi-arrow-left fs-5 return-hover rounded border p-2" (click)="return()"></i>
+  </div>
+  <h2 class="text-center">Carrito de compras</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartProducts">
+        <td><img src="{{item.urlImage}}" alt="No existe imagen" class="img"> </td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td><i class="bi bi-trash-fill" (click)="removeProduct(item)" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar"></i> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <span>Total:</span>{{totalProducts | currency}}
+  </div>
+</div>

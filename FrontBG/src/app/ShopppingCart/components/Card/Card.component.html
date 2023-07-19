@@ -1,0 +1,10 @@
+<div class="card my-card">
+  <img [src]="product?.urlImage"  class="card-img-top " alt="Imagen no disponible">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">Precio: {{ product.price }}</p>
+    <button class="btn btn-primary btn-sm" [routerLink]="['/product-detail', product.idProduct]">
+       Ver detalle
+    </button>
+  </div>
+</div>

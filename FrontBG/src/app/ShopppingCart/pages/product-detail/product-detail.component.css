@@ -1,0 +1,10 @@
+.detail{
+    height: fit-content;
+    padding: 20px;
+}
+
+.return-hover:hover{
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}

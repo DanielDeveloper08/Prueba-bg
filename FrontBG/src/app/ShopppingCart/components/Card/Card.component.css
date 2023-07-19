@@ -1,0 +1,23 @@
+.my-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .my-card .card-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .my-card .card-text {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .my-card .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  

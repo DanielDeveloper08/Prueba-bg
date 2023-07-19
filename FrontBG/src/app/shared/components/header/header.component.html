@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Carrito de Compra</h1>
+        <p>¡Encuentra los mejores productos!</p>
+      </div>
+      <div class="col-md-6 text-end" *ngIf="!getUserIsLogin()">
+        <button class="btn btn-info" (click)="goToLogin()"  > Iniciar Sesión</button>
+      </div>
+
+      <div class="col-md-6 text-end" *ngIf="getUserIsLogin()">
+        <button class="btn btn-danger" (click)="close()"  > Cerrar Sesión</button>
+      </div>
+
+      <div class="col-md-6 text-end">
+        <button class="btn btn-light" (click)="goToShoppingCart()"  > <i class="bi bi-cart-dash"></i> Ver el carrito</button>
+      </div>
+    </div>
+  </div>
+</header>

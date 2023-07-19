@@ -1,0 +1,12 @@
+<div class="progress" *ngIf="isLoading">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+</div>
+<div class="container">
+  <h2 class="text-center mt-4">Sección de ropa</h2>
+
+  <div class="row">
+    <div *ngFor="let item of allProducts" class="col-md-4 mt-4 hover-product" >
+      <app-Card [product]="item"></app-Card>
+    </div>
+  </div>
+</div>

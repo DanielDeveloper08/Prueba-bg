@@ -1,0 +1,29 @@
+<div class="progress" *ngIf="isLoading">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+</div>
+<div class="ps-5 pt-2 mt-3">
+  <i class="bi bi-arrow-left fs-5 return-hover rounded border p-2" (click)="returnAllProduct()"></i>
+</div>
+<div class="d-flex w-100 px-5 py-4">
+  <div class="w-50 border">
+    <img [src]="product.urlImage" class="card-img-top" alt="Imagen no disponible">
+  </div>
+  <div class="w-50 ms-5 card d-flex justify-content-center ps-4 detail">
+
+    <h2>Detalle de producto</h2>
+    <h3>{{ product.name }}</h3>
+    <p class="card-text"><span class="fw-bold">Descripción: </span>{{ product.description }}</p>
+    <p class="card-text"><span class="fw-bold">Precio: </span>{{ product.price | currency }}</p>
+
+    <button class="btn btn-primary btn-sm" (click)="agregarAlCarrito()">
+      <i class="bi bi-cart"></i> Agregar al carrito
+    </button>
+
+    <div class="mt-4" *ngIf="getUserIsLogin()">
+      <label for="comment mb-3">Comentario:</label>
+      <textarea id="comment" class="form-control" rows="4" [(ngModel)]="comment"></textarea>
+    </div>
+    <button class="btn btn-info mt-2 text-white" (click)="saveComent()">Guardar Comentario</button>
+    <!-- Replace 'comment' with the variable you're using to store the comment in your component -->
+  </div>
+</div>
