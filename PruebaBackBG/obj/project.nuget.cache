@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JTRFEe4S9ze917cupxAEKFdj+E5IekQHip9O/GyZw60dCcjN3SO2+mAJO69FG5aDIbYrNvFxPQ0Fsb+DcNBV6Q==",
+  "dgSpecHash": "bg3FTSe6tEHTRG7vxzFZ/+L8T3ETEhgrsLjlfIAlKIbfAAfxqQHoSrWipl+mNlFVUt9MGAXiWrueTkHeSQzeoQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danny\\Desktop\\CRUD-Mascota\\PruebaBackBG\\PruebaBackBG.csproj",
+  "projectFilePath": "C:\\Users\\danny\\Desktop\\FrontBackBG\\PruebaBackBG\\PruebaBackBG.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danny\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

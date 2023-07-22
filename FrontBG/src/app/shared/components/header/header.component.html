@@ -1,21 +1,21 @@
 <header class="header">
-  <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h1>Carrito de Compra</h1>
-        <p>¡Encuentra los mejores productos!</p>
+        <img src="assets/logoAmazon.png" alt="logo" class="img-fluid logo">
       </div>
-      <div class="col-md-6 text-end" *ngIf="!getUserIsLogin()">
-        <button class="btn btn-info" (click)="goToLogin()"  > Iniciar Sesión</button>
-      </div>
-
-      <div class="col-md-6 text-end" *ngIf="getUserIsLogin()">
-        <button class="btn btn-danger" (click)="close()"  > Cerrar Sesión</button>
-      </div>
-
-      <div class="col-md-6 text-end">
-        <button class="btn btn-light" (click)="goToShoppingCart()"  > <i class="bi bi-cart-dash"></i> Ver el carrito</button>
+      <div class="col-md-6 d-flex justify-content-end" >
+        <div (click)="goToShoppingCart()" class="position-relative">
+          <i class="bi bi-cart-dash fs-4"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{productsInCart}}
+          </span>
+        </div>
+       <div *ngIf="!getUserIsLogin()" class="user">
+        <i class="bi bi-person-circle fs-4 ms-4 me-2" (click)="goToLogin()"></i>
+       </div>
+       <div *ngIf="getUserIsLogin()">
+          <button class="btn btn-danger ms-4" (click)="close()"> Cerrar Sesión</button>
+       </div>
       </div>
     </div>
-  </div>
 </header>

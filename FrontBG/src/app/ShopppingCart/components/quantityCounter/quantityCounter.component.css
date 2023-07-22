@@ -1,0 +1,11 @@
+.add:hover{
+    background-color: rgb(245, 245, 245);
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+.remove:hover{
+    background-color: rgb(245, 245, 245);
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+}

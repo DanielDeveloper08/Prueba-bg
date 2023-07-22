@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProductI } from '../interfaces/Product.interface';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/enviroments/environments';
 import { GeneralResponse } from 'src/app/shared/interfaces/general';
@@ -11,8 +11,10 @@ import { GeneralResponse } from 'src/app/shared/interfaces/general';
 export class ProductService {
 
   private apiUrl: string = environment.apiUrl;
-
   shoppingCart: ProductI[] = [];
+  quantityProductsInCart: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
 
 
   constructor(private http: HttpClient) { }
@@ -29,6 +31,9 @@ export class ProductService {
     } else {
       this.shoppingCart.push({ ...product, quantity: 1 });
     }
+
+    this.quantityProductsInCart.next(this.getQuantityProductsInCart());
+    this.totalPrice.next(this.getTotal());
   }
 
 
@@ -36,29 +41,47 @@ export class ProductService {
  * Elimina producto del carrito
  * @param product 
  */
-removeProduct(product: ProductI) {
-  const index = this.shoppingCart.findIndex(item => item.idProduct === product.idProduct);
+  removeProduct(product: ProductI) {
+    const index = this.shoppingCart.findIndex(item => item.idProduct === product.idProduct);
 
-  if (index !== -1) {
-    if (this.shoppingCart[index].quantity > 1) {
-     this.shoppingCart[index].quantity--;
-    } else {
-      this.shoppingCart.splice(index, 1);
+    if (index !== -1) {
+      if (this.shoppingCart[index].quantity > 1) {
+        this.shoppingCart[index].quantity--;
+      } else {
+        this.shoppingCart.splice(index, 1);
+      }
     }
+    this.quantityProductsInCart.next(this.getQuantityProductsInCart());
+    this.totalPrice.next(this.getTotal());
   }
-}
 
-/**
- * Retorna el total de el carrito
- * @returns R
- */
-getTotal(): number{
-  let total = 0;
-  this.shoppingCart.forEach( product =>{
-      total+= product.quantity * product.price;
-  })
-  return total;
-}
+  /**
+   * Elimina todos los items de un producto
+   */
+  removeAllItemsProduct(idProduct: number){
+    console.log(idProduct)
+    this.shoppingCart = this.shoppingCart.filter( product => product.idProduct != idProduct);
+    console.log(this.shoppingCart)
+  }
+
+  /**
+   * Retorna el total de el carrito
+   * @returns 
+   */
+  getTotal(): number {
+    return this.shoppingCart.reduce((totalPrice, product) =>
+    totalPrice + (product.quantity * product.price), 0);
+  }
+
+  /**
+   *  * Retorna la cantidad de productos en el carrito
+   * @returns 
+   */
+  getQuantityProductsInCart(): number {
+    return this.shoppingCart.reduce((totalProducts, product) =>
+      totalProducts + product.quantity, 0);
+  }
+
 
 
 

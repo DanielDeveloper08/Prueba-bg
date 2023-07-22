@@ -4,6 +4,8 @@ namespace PruebaBackBG.Services.Interfaces
 {
     public interface IPlanService
     {
-        Task<Plan[]> GetPlans();
+        Task<IEnumerable<Plan>> GetPlans();
+
+        Task<Plan> GetPlanById(int idPlan);
     }
 }

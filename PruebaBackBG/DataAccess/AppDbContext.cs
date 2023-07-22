@@ -13,7 +13,7 @@ namespace PruebaBackBG.DataAccess
         public DbSet<ShoppingCart> ShoppingCart { get; set; }
         public DbSet<CartItem> CartItem { get; set; }
         public DbSet<User> User { get; set; }
-
+        public DbSet<Plan> Plan { get; set; }
 
     }
 }

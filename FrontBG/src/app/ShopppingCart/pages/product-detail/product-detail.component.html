@@ -22,8 +22,8 @@
     <div class="mt-4" *ngIf="getUserIsLogin()">
       <label for="comment mb-3">Comentario:</label>
       <textarea id="comment" class="form-control" rows="4" [(ngModel)]="comment"></textarea>
+      <button class="btn btn-info mt-2 text-white" (click)="saveComent()">Guardar Comentario</button>
     </div>
-    <button class="btn btn-info mt-2 text-white" (click)="saveComent()">Guardar Comentario</button>
-    <!-- Replace 'comment' with the variable you're using to store the comment in your component -->
+    
   </div>
 </div>

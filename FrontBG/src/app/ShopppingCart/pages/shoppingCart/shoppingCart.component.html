@@ -19,7 +19,7 @@
         <td><img src="{{item.urlImage}}" alt="No existe imagen" class="img"> </td>
         <td>{{item.name}}</td>
         <td>{{item.price}}</td>
-        <td>{{item.quantity}}</td>
+        <td><app-quantityCounter [quantity]="item.quantity" (emitAddRemove)="setQuantityOutput($event, item)"></app-quantityCounter></td>
         <td><i class="bi bi-trash-fill" (click)="removeProduct(item)" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar"></i> </td>
       </tr>
     </tbody>

@@ -21,6 +21,8 @@ builder.Services.AddCors(options => options.AddPolicy("AllowWebapp",
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IPlanService, PlanService>();
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>

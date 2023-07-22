@@ -56,7 +56,7 @@ export class ProductDetailComponent implements OnInit {
    */
   agregarAlCarrito() {
     this.productService.addProduct(this.product);
-    this.toastrService.success("Producto agregado!", "Mensaje")
+    this.toastrService.success("Producto agregado!", "Mensaje",{positionClass: 'toast-bottom-right'})
   }
 
 

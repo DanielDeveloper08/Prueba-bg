@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danny\\Desktop\\CRUD-Mascota\\PruebaBackBG\\PruebaBackBG.csproj": {}
+    "C:\\Users\\danny\\Desktop\\FrontBackBG\\PruebaBackBG\\PruebaBackBG.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danny\\Desktop\\CRUD-Mascota\\PruebaBackBG\\PruebaBackBG.csproj": {
+    "C:\\Users\\danny\\Desktop\\FrontBackBG\\PruebaBackBG\\PruebaBackBG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danny\\Desktop\\CRUD-Mascota\\PruebaBackBG\\PruebaBackBG.csproj",
+        "projectUniqueName": "C:\\Users\\danny\\Desktop\\FrontBackBG\\PruebaBackBG\\PruebaBackBG.csproj",
         "projectName": "PruebaBackBG",
-        "projectPath": "C:\\Users\\danny\\Desktop\\CRUD-Mascota\\PruebaBackBG\\PruebaBackBG.csproj",
+        "projectPath": "C:\\Users\\danny\\Desktop\\FrontBackBG\\PruebaBackBG\\PruebaBackBG.csproj",
         "packagesPath": "C:\\Users\\danny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danny\\Desktop\\CRUD-Mascota\\PruebaBackBG\\obj\\",
+        "outputPath": "C:\\Users\\danny\\Desktop\\FrontBackBG\\PruebaBackBG\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

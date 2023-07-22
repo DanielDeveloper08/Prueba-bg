@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { ProductDetailComponent } from './ShopppingCart/pages/product-detail/product-detail.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ShoppingCartComponent } from './ShopppingCart/pages/shoppingCart/shoppingCart.component';
+import { QuantityCounterComponent } from './ShopppingCart/components/quantityCounter/quantityCounter.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ShoppingCartComponent } from './ShopppingCart/pages/shoppingCart/shoppi
     LoginComponent,
     CardComponent,
     ProductDetailComponent, 
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    QuantityCounterComponent
   ],
   imports: [
     BrowserModule,
