@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
+  error!: string;
+  isLoading: boolean = false;
   protected onDestroy = new Subject<void>();
 
 
@@ -49,22 +51,29 @@ export class LoginComponent implements OnInit {
    * realiza el login
    */
     loginUser(user: LoginI){
+      this.isLoading = true;
     this.loginService
       .login(user)
       .pipe(takeUntil(this.onDestroy))
       .subscribe({
         next: (res)=>{
           if(res.token){
+            this.isLoading=false;
             localStorage.setItem( 'token', res.token!);
             this.router.navigateByUrl('/products');
-          }else{
-            console.log(res);
           }
         },
         error: (err)=>{
-          this.toastrService.error('Ocurrio un error!', 'Mensaje')
+          this.isLoading=false;
+          this.error = err.error.message;
         }
       })
   }
 
+  /**
+   * Limpia el error
+   */
+  clearError(){
+    this.error = '';
+  }
 }

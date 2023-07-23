@@ -9,11 +9,11 @@ import { NoAuthService } from './shared/guards/noAuth.guard';
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "products" },
   {
-    // canActivate: [NoAuthService],
     path: 'products',
     component: ProductsComponent
   },
   {
+    canActivate: [NoAuthService],
     path: 'login',
     component: LoginComponent,
   },

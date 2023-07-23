@@ -13,6 +13,7 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 export class ShoppingCartComponent implements OnInit {
   cartProducts: ProductI[] = [];
   totalProducts: number = 0;
+  totalItemsProducts: number = 0;
   protected onDestroy = new Subject<void>();
 
   constructor(private productService: ProductService, private router: Router) { }
@@ -23,6 +24,7 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
     this.cartProducts = this.productService.shoppingCart;
     this.getTotalProducs();
+    this.getTotalItems();
   }
 
   /**
@@ -46,11 +48,23 @@ export class ShoppingCartComponent implements OnInit {
    */
   removeProduct(product: ProductI) {
     this.productService.removeAllItemsProduct(product.idProduct);
+    this.cartProducts = this.productService.shoppingCart;
   }
 
   /**
-   * Retorna total
+   * Retorna total de items
    */
+  getTotalItems() {
+    this.productService.quantityProductsInCart
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe((totalItems) => {
+        this.totalItemsProducts = totalItems;
+      });
+  }
+
+  /**
+ * Retorna total a pagar
+ */
   getTotalProducs() {
     this.productService.totalPrice
       .pipe(takeUntil(this.onDestroy))
@@ -63,7 +77,7 @@ export class ShoppingCartComponent implements OnInit {
    * 
    * @param event 
    */
-  setQuantityOutput(event:boolean, item:ProductI){
+  setQuantityOutput(event: boolean, item: ProductI) {
     event
       ? this.productService.addProduct(item)
       : this.productService.removeProduct(item)

@@ -1,6 +1,7 @@
 .detail{
     height: fit-content;
     padding: 20px;
+    width: 30%;
 }
 
 .return-hover:hover{
@@ -8,3 +9,4 @@
     color: white;
     cursor: pointer;
 }
+

@@ -59,9 +59,9 @@ export class ProductService {
    * Elimina todos los items de un producto
    */
   removeAllItemsProduct(idProduct: number){
-    console.log(idProduct)
     this.shoppingCart = this.shoppingCart.filter( product => product.idProduct != idProduct);
-    console.log(this.shoppingCart)
+    this.quantityProductsInCart.next(this.getQuantityProductsInCart());
+    this.totalPrice.next(this.getTotal());
   }
 
   /**

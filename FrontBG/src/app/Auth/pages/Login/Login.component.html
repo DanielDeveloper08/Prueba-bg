@@ -1,7 +1,15 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <h2>Formulario de inicio de sesión</h2>
+      <h2>Inicio de sesión</h2>
+      <div *ngIf="error" class="alert alert-danger my-3 d-flex p-2">
+        <div class="message w-50">
+          {{ error }}
+        </div>
+        <div class="w-50 d-flex justify-content-end ">
+          <i class="bi bi-x-lg clear" (click)="clearError()"></i>
+        </div>
+      </div>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="username" class="form-label">Usuario</label>
@@ -11,7 +19,10 @@
           <label for="password" class="form-label">Contraseña</label>
           <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" formControlName="password">
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        <button type="submit" class="btn color-primary text-white">
+          Iniciar sesión
+          <div *ngIf="isLoading" class="spinner-border text-light spinner spinner-border-sm" role="status">          </div>
+        </button>
       </form>
     </div>
   </div>

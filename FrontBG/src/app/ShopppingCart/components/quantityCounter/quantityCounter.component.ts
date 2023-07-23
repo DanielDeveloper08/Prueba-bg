@@ -5,14 +5,11 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
   templateUrl: './quantityCounter.component.html',
   styleUrls: ['./quantityCounter.component.css']
 })
-export class QuantityCounterComponent implements OnInit , OnChanges{
+export class QuantityCounterComponent implements OnInit{
   @Input() quantity!: number;
   @Output() emitAddRemove: EventEmitter<boolean> = new EventEmitter<boolean>(); 
 
   constructor() { }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes['quantity'].currentValue)
-  }
 
   ngOnInit() {
   }

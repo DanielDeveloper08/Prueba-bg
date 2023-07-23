@@ -4,28 +4,40 @@
   </div>
   <h2 class="text-center">Carrito de compras</h2>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Imagen</th>
-        <th>Producto</th>
-        <th>Precio</th>
-        <th>Cantidad</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of cartProducts">
-        <td><img src="{{item.urlImage}}" alt="No existe imagen" class="img"> </td>
-        <td>{{item.name}}</td>
-        <td>{{item.price}}</td>
-        <td><app-quantityCounter [quantity]="item.quantity" (emitAddRemove)="setQuantityOutput($event, item)"></app-quantityCounter></td>
-        <td><i class="bi bi-trash-fill" (click)="removeProduct(item)" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar"></i> </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div>
-    <span>Total:</span>{{totalProducts | currency}}
+  <div class="d-flex mt-4">
+    <div class="table-info">
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartProducts">
+            <td><img src="{{item.urlImage}}" alt="No existe imagen" class="img"> </td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td><app-quantityCounter [quantity]="item.quantity" (emitAddRemove)="setQuantityOutput($event, item)"></app-quantityCounter></td>
+            <td><i class="bi bi-trash-fill" (click)="removeProduct(item)" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar"></i> </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="cartProducts.length == 0"  class="text-center fs-5 fw-bolder mt-5"><i class="bi bi-cart-x fs-3 me-2"></i> No hay productos en el carrito</div>
+    </div>
+    
+  
+    <div class="total card ms-3 p-3">
+      <span class="fs-4 fw-bolder">Resumen del Pedido</span>
+      <div class="d-flex justify-content-between mt-1">
+        <span class="fw-bolder d-flex align-items-end">Subtotal</span>
+        <span class="fs-3 fw-medium">{{totalProducts | currency}}</span>
+      </div>
+      <button class="border color-primary fs-4 text-white mt-3 py-2 payment fw-bolder">Pagar ahora ({{totalItemsProducts}})</button>
+    </div>
+    
   </div>
 </div>
